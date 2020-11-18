@@ -1,0 +1,184 @@
+h1, h2 {
+  font-family: Lato;
+}
+
+body{
+  background :#fff linear-gradient(to bottom, #e9ecef, #fff 200px);
+  font-family: 'Roboto', sans-serif;
+}
+
+/*3 column layout for large screens*/
+.container{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+  "search-area search-area search-area"
+  "details_area weather_area forecast_area";
+  
+
+}
+
+.search_area{
+  grid-area: search-area;
+}
+
+.weather_area{
+  grid-area: weather_area;
+  text-align: center;
+}
+
+.details_area{
+  grid-area: details_area;
+}
+
+.forecast_area{
+  grid-area: forecast_area;
+  overflow: scroll;
+}
+
+.search_area{
+  text-align: center;
+}
+.city__search{
+  width: 50%;
+}
+
+.weather_area span{
+  margin: 0 0 10px 0; 
+}
+
+.light-color{
+  opacity: 0.7; 
+}
+.float-right{
+  text-align: right
+}
+
+table{
+  font-size: 16px;
+}
+
+tr.border_bottom td{
+  border-bottom: .5px solid #c8c7cc;
+  padding: 10px;
+}
+
+.box{
+  background: #fff linear-gradient(to bottom, #e9ecef, #fff 200px);
+  height: 500px;
+  box-shadow: 2px 4px 8px grey;
+  padding: 20px;
+}
+
+.forecast_list{
+  list-style: none;
+}
+.forecast_list_item{
+  border-bottom: .5px solid #c8c7cc;
+  padding: 5px 0 10px 0;
+}
+
+.loader {
+    margin: 5rem auto;
+    text-align: center; 
+    vertical-align: center;
+    align-content: center;
+}
+
+@keyframes donut-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.donut {
+    display: inline-block;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #7983ff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: donut-spin 1.2s linear infinite;
+}
+
+.donut.forecast-spinner{
+  width: 20px;
+  height: 20px;
+  float: right;
+  display: none;
+}
+
+.donut.forecast-spinner.show{
+  display: inline-block;
+}
+
+/* On screens that are 500px wide or less 1 column layout */
+@media screen and (max-width: 500px) {
+  .container{
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "search-area"
+    "weather_area"
+    "details_area"
+    "forecast_area";
+  }
+
+  .forecast_area{
+    overflow: unset;
+  }
+  .box{
+    height: auto;
+  }
+}
+
+/*For medium screens switch to a 2 column layout*/
+@media screen and (min-width: 501px) and (max-width: 1024px) {
+  .container{
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "search-area search-area"
+    "weather_area details_area"
+    "forecast_area forecast_area";
+  }
+
+  .forecast_area{
+    overflow: unset;
+  }
+  .box{
+    height: auto;
+  }
+}
+
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#overlay .donut, #overlay .info-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
+#overlay.show{
+  display: block;
+}
+
