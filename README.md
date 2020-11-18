@@ -1,4 +1,5 @@
 # javaScript Weather Information
+[![App Screenshot](https://github.com/rtrend96/weather-info-App/blob/main/Screenshot.PNG)](https://github.com/rtrend96/weather-info-App/blob/main/Screenshot.PNG)
 
 ## Getting Started
 
